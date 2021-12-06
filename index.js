@@ -72,3 +72,25 @@ let skills = [
         }]
     }
 ];
+
+function switchSchedule() {
+    let toggle = document.getElementById("toggle");
+    let subject_filter = document.getElementById("subject-filter");
+    let skill_filter = document.getElementById("skill-filter");
+    let subject_schedule = document.getElementById("subject-schedule");
+    let skill_schedule = document.getElementById("skill-schedule");
+
+    if (toggle.innerHTML == "Schedule by Skill") {
+        toggle.innerHTML = "Schedule by Subject";
+        subject_filter.style.display = "none";
+        skill_filter.style.display = "";
+        subject_schedule.style.display = "none";
+        skill_schedule.style.display = "";
+    } else {
+        toggle.innerHTML = "Schedule by Skill";
+        subject_filter.style.display = "";
+        skill_filter.style.display = "none";
+        subject_schedule.style.display = "";
+        skill_schedule.style.display = "none";
+    }
+}
