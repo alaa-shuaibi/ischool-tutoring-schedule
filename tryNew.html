@@ -28,9 +28,9 @@
         <script>
           $(document).ready(function () {
             // FETCHING DATA FROM JSON FILE
-            // $.getJSON("ischool.json",
-            // function (data) {
-            let subjectData = [
+            $.getJSON("ischoolSubject.json",
+            function (subjectData) {
+            /*let subjectData = [
               {
                 "Schedule_by_Subject": "IS 101",
                 "Monday": "12-7pm",
@@ -87,11 +87,10 @@
                 "Wednesday": "",
                 "Thursday": "5-7pm"
               }
-            ];
+            ];*/
             <!-- HEADING FORMATION -->
             let subject = "<tr>";
-            for (var headers in subjectData[0]) {
-              console.log(headers);
+            for (let headers in subjectData[0]) {
               subject += "<th>" + headers + "</th>";
             }
             subject += "</tr>";
@@ -122,8 +121,7 @@
 
             //INSERTING ROWS INTO TABLE
             $('#subjectTable').append(subject);
-            //}
-            //);
+            });
           });
         </script>
     </table>
@@ -136,9 +134,9 @@
         <script>
           $(document).ready(function () {
             // FETCHING DATA FROM JSON FILE
-            // $.getJSON("ischool.json",
-            // function (data) {
-            let skillsData = [
+            $.getJSON("ischoolSkills.json",
+            function (skillsData) {
+            /*let skillsData = [
               {
                 "Schedule_by_Skill": "Python",
                 "Monday": "12-7pm",
@@ -216,10 +214,10 @@
                 "Wednesday": "12-5pm",
                 "Thursday": "1-3, 5-6pm"
               }
-            ];
+            ];*/
             <!-- HEADING FORMATION -->
             let skills = "<tr>";
-            for (var headers in skillsData[0]) {
+            for (let headers in skillsData[0]) {
               skills += "<th>" + headers + "</th>";
             }
             skills += "</tr>";
@@ -250,8 +248,7 @@
 
             //INSERTING ROWS INTO TABLE
             $('#skillsTable').append(skills);
-            //}
-            //);
+            });
           });
         </script>
     </table>
