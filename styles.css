@@ -3,7 +3,6 @@ html {
 }
 
 body {
-    background-color: deepskyblue;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -11,8 +10,7 @@ body {
 }
 
 h1 {
-    color: black;
-    font-family: cursive;
+    font-family: 'Source Sans Variable','Source Sans Pro','Calibri','Open Sans','Helvetica','Arial',sans-serif;
     font-weight: 500;
     text-decoration: underline;
 }
@@ -31,15 +29,29 @@ select {
 }
 
 #toggle {
-    background-color: lightgreen;
+    color: white;
+    background-color: #4D69A0;
     padding: .5em;
+    border: 2px solid black;
     border-radius: 1em;
+    font-size: 16px;
+}
+
+#settings a {
+    color: white;
+    text-decoration: none;
+    background-color: #4D69A0;
+    padding: .5em;
+    border: 2px solid black;
+    border-radius: 1em;
+    font-size: 16px;
 }
 
 
 /* Styles for Schedule Table */
 
 table {
+    color: white;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -53,14 +65,15 @@ th, td {
 }
 
 tr:nth-child(odd) {
-    background-color: lightblue;
+    background-color: #13284B;
 }
 
 tr:nth-child(even) {
-    background-color: lightsalmon;
+    background-color: #FF552D;
 }
 
 td a {
+    color: white;
     text-decoration: none;
 }
 
@@ -68,7 +81,8 @@ td a {
 /* Styles for Resources */
 
 #resources-title {
-    background-color: white;
+    color: white;
+    background-color: #FF552D;
     font-family: cursive;
     font-weight: 500;
     text-decoration: underline;
