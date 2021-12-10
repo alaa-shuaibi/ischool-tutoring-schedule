@@ -62,10 +62,8 @@ function displayResources(topicName) {
     document.getElementById("resources-title").innerHTML = "Resources for " + topicName;
     ul.innerHTML = "";
 
-    if (links.length == 0) {
-        let li = document.createElement("li");
-        li.innerHTML = "No resources available."
-    } else {
+    if (links.length == 0) { ul.innerHTML = "No resources available." }
+    else {
         for (let l of links) {
             let li = document.createElement("li");
             if (l.name == "") { li.innerHTML = "<a href=\"" + l.url +"\" target=\"_blank\">" + l.url + "</a>"; }
