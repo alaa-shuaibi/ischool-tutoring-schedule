@@ -1,0 +1,183 @@
+[
+    {
+        "name": "IS 101",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 202",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 203",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 204",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 205",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 206",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 407",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "IS 430",
+        "type": "subject",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Python",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "SQL",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Java",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "JavaScript",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "R",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "C/C++",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Figma",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Data Visualization",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Databases",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    },{
+        "name": "Math",
+        "type": "skill",
+        "sunday": "",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": ""
+    }
+]
