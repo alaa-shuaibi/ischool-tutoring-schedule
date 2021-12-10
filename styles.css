@@ -16,10 +16,11 @@ h1 {
 }
 
 img {
-    position: absolute;
+    text-align: left;
     width: 25%;
-    top: 0%;
+    position: absolute;
     left: 0%;
+    top: 0%;
 }
 
 
@@ -44,7 +45,7 @@ select {
     font-size: 16px;
 }
 
-#settings a {
+#feedback-link {
     color: white;
     text-decoration: none;
     background-color: #4D69A0;
@@ -89,7 +90,7 @@ td a {
 
 #resources-title {
     color: white;
-    background-color: #FF552D;
+    background-color: #4D69A0;
     font-family: cursive;
     font-weight: 500;
     text-decoration: underline;
