@@ -77,11 +77,26 @@ th, td {
     padding: .75em;
 }
 
+th {
+    color: white;
+    background-color: #13284b;
+}
+
 tr:nth-child(odd) {
-    background-color: #13284B;
+    color: black;
+    background-color: hsl(218, 60%, 80%);
+}
+
+tr:nth-child(odd) td:nth-child(1) {
+    background-color: #13284b;
 }
 
 tr:nth-child(even) {
+    color: black;
+    background-color: hsl(11, 100%, 80%);
+}
+
+tr:nth-child(even) td:nth-child(1) {
     background-color: #FF552D;
 }
 
