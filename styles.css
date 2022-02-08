@@ -45,21 +45,6 @@ select {
     font-size: 16px;
 }
 
-#survey-links {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#survey-links a {
-    color: white;
-    text-decoration: none;
-    background-color: #4D69A0;
-    padding: .5em;
-    border: 2px solid black;
-    border-radius: 1em;
-    font-size: 16px;
-}
-
 
 /* Styles for Schedule Table */
 
@@ -106,26 +91,42 @@ td a {
 }
 
 
-/* Styles for Resources */
+/* Styles for Info Section */
 
-#resources-title {
+#info-section h3 {
     color: #14A2B8;
    /* background-color: #14A2B8;*/
     /*font-family: cursive;*/
     font-weight: 500;
-    /*text-decoration: underline;*/
+    text-decoration: underline;
     text-align: left;
     padding: .5em;
     margin: .5em;
     width: fit-content;
-    /*border: 1px solid black;*/
-    /*border-radius: 1em;*/
 }
 
-#resources-list {
+#info-section ul {
     text-align: left;
 }
 
-#resources-list a {
+#info-section a {
     text-decoration: none;
+}
+
+
+/* Styles for Survey Links */
+
+#survey-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#survey-links a {
+    color: white;
+    text-decoration: none;
+    background-color: #4D69A0;
+    padding: .5em;
+    border: 2px solid black;
+    border-radius: 1em;
+    font-size: 16px;
 }

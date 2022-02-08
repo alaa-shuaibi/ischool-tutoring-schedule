@@ -12,9 +12,11 @@
     <header>
         <img src="ischool_logo.png" alt="ischool_logo">
     </header>
+
     <div style="margin-top: 125px">
         <h1>iSchool Tutoring Schedule</h1>
     </div>
+    
     <main style="margin-left: 25px; margin-right: 25px">
         <div id="settings">
             <div id="filters" style="display: none;">
@@ -58,17 +60,45 @@
             </tr>
         </table>
 
-        <div id="resources-container" style="display: none;">
-            <h3 id="resources-title"></h3>
-            <ul id="resources-list"></ul>
+        <div id="info-section">
+            <div id="tutors-container">
+                <h3 id="tutors-header">Available Tutors</h3>
+                <ul id="tutors-list">
+                    <li>Tutor 1</li>
+                    <ul>
+                        <li>Courses: IS 101, IS 205</li>
+                        <li>Skills: Python</li>
+                        <li>Monday: 12 PM - 5PM</li>
+                    </ul>
+                    <br>
+                    <br>
+                    <li>Tutor 2</li>
+                    <ul>
+                        <li>Courses: IS 202, IS 206</li>
+                        <li>Skills: SQL</li>
+                        <li>Tuesday: 12 PM - 1 PM, 3 PM - 5 PM</li>
+                        <li>Thursday: 3 PM - 5 PM</li>
+                    </ul>
+                    
+                </ul>
+            </div>
+
+            <div id="resources-container" style="display: none;">
+                <h3 id="resources-title"></h3>
+                <ul id="resources-list"></ul>
+            </div>
         </div>
     </main>
+
+    <br>
 
     <div id="survey-links">
         <a href="https://ischooltutoring.wufoo.com/forms/tutor-survey/" target="_blank">Tutor Survey</a>
         <a href="https://ischooltutoring.wufoo.com/forms/tutee-survey/" target="_blank">Tutee Survey</a>
         <a href="https://forms.gle/g2TsH2L94RgKaL8r7" target="_blank">Provide Feedback</a>
     </div>
+
+    <br>
     
     <script src="index.js"></script>
 </body>

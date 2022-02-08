@@ -329,4 +329,13 @@ let resources = {
     "Math": []
 };
 
+let tutors = [
+    {
+        "name": "",
+        "courses": [],
+        "skills": [],
+        "schedule": []
+    },
+]
+
 loadSchedule(schedule);
