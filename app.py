@@ -28,6 +28,10 @@ def getResources():
     resources_data_by_topic = {}
 
     for r in resources_data:
+        # Prevent resources that don't have a name or URL from being added:
+        if r['name'] == '' & r['url'] == '':
+            continue
+        
         if r['subjects'] == '' and r['skills'] == '':
             continue
         elif r['subjects'] == '':
