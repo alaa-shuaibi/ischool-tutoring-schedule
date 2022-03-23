@@ -23,7 +23,7 @@ def getSchedule():
 def getResources():
     resources_sheet = client.open('iSchool Tutoring Schedule').get_worksheet(1)
     resources_data = resources_sheet.get_all_records()
-    #print(resources_data)
+    print(resources_data)
     
     resources_data_by_topic = {}
 
@@ -31,9 +31,9 @@ def getResources():
         if r['subjects'] == '' and r['skills'] == '':
             continue
         elif r['subjects'] == '':
-            topic_list = r['subjects'].replace(' ', '').lower().split(',')
-        elif r['skills'] == '':
             topic_list = r['skills'].replace(' ', '').lower().split(',')
+        elif r['skills'] == '':
+            topic_list = r['subjects'].replace(' ', '').lower().split(',')
         else:
             topics = r['subjects'] + ',' + r['skills']
             topic_list = topics.replace(' ', "").lower().split(',')

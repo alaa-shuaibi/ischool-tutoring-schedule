@@ -14,16 +14,16 @@ async function loadData() {
     // tutors = await response.json();
 }
 
-// Compare funtion for sorting topics by name:
-function compareTopics(topic1, topic2) {
-    if (topic1["name"] < topic2["name"]) return -1;
-    if (topic1["name"] > topic2["name"]) return 1;
+// Compare function for sorting objects by "name" attribute:
+function compareObjects(o1, o2) {
+    if (o1["name"] < o2["name"] && o1["name"] != "") return -1;
+    if (o1["name"] > o2["name"] && o2["name"] != "") return 1;
     return 0;
 }
 
 // Displays the schedule onto the website:
 function displaySchedule(schedule) {
-    schedule.sort(compareTopics);
+    schedule.sort(compareObjects);
     // let subject_filter = document.getElementById("subject-filter");
     // let skill_filter = document.getElementById("skill-filter");
     let subject_schedule = document.getElementById("subject-schedule");
@@ -80,6 +80,7 @@ function displayResources(topicName) {
 
     if (key in resources) { 
         let links = resources[key];
+        links.sort(compareObjects);
         for (let l of links) {
             let li = document.createElement("li");
             if (l.name == "") { li.innerHTML = "<a href=\"" + l.url +"\" target=\"_blank\">" + l.url + "</a>"; }
@@ -89,7 +90,7 @@ function displayResources(topicName) {
             ul.appendChild(document.createElement("br"));
         }
     } else {
-        ul.innerHTML = "No resources available."
+        ul.innerHTML = "No resources available.";
     }
 
     document.getElementById("resources-container").style.display = "";
