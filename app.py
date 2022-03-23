@@ -23,13 +23,13 @@ def getSchedule():
 def getResources():
     resources_sheet = client.open('iSchool Tutoring Schedule').get_worksheet(1)
     resources_data = resources_sheet.get_all_records()
-    print(resources_data)
+    #print(resources_data)
     
     resources_data_by_topic = {}
 
     for r in resources_data:
         # Prevent resources that don't have a name or URL from being added:
-        if r['name'] == '' & r['url'] == '':
+        if r['name'] == '' and r['url'] == '':
             continue
         
         if r['subjects'] == '' and r['skills'] == '':
