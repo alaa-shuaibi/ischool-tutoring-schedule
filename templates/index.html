@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iSchool Tutoring Schedule</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
 </head>
 
 <body>
     <header>
-        <img src="ischool_logo.png" alt="ischool_logo">
+        <img src="{{ url_for('static', filename='ischool_logo.png') }}" alt="ischool_logo">
     </header>
 
     <div style="margin-top: 125px">
@@ -61,7 +61,7 @@
         </table>
 
         <div id="info-section">
-            <div id="tutors-container">
+            <div id="tutors-container" style="display: none;">
                 <h3 id="tutors-header">Available Tutors</h3>
                 <ul id="tutors-list">
                     <li>Tutor 1</li>
@@ -97,6 +97,6 @@
 
     <br>
     
-    <script src="index.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>
