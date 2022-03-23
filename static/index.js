@@ -1,40 +1,17 @@
-const request = new XMLHttpRequest();
-resources = {};
+let resources;
+// let tutors;
 
-function loadData() {
-    request.open("GET", "http://127.0.0.1:5000/getSchedule");
-    request.responseType = 'json';
-    request.onload = function() {
-        if (request.status >= 400) return;
+// Retrieves data from server then loads it onto the website:
+async function loadData() {
+    let response = await fetch("http://127.0.0.1:5000/getSchedule");
+    let schedule = await response.json();
+    displaySchedule(schedule);
 
-        // Get Schedule
-        let schedule = request.response;
-        displaySchedule(schedule);
+    response = await fetch("http://127.0.0.1:5000/getResources");
+    resources = await response.json();
 
-        // Get Resources
-        request.open("GET", "http://127.0.0.1:5000/getResources");
-        request.responseType = 'json';
-        request.onload = function() {
-            if (request.status >= 400) return;
-            let data = request.response;
-            console.log(data);
-            resources = data;
-
-            /*
-            // Get Tutors
-            request.open("GET", "http://127.0.0.1:5000/getTutors");
-            request.responseType = 'json';
-            request.onload = function() {
-                if (request.status >= 400) return;
-                let data = request.response;
-                console.log(data);
-            };
-            request.send();
-            */
-        };
-        request.send();
-    };
-    request.send();
+    // response = await fetch("http://127.0.0.1:5000/getTutors");
+    // tutors = await response.json();
 }
 
 // Compare funtion for sorting topics by name:
