@@ -1,23 +1,24 @@
+let url = "http://127.0.0.1:5000"
 let resources;
 // let tutors;
 
 // Retrieves data from server then loads it onto the website:
 async function loadData() {
-    let response = await fetch("http://127.0.0.1:5000/getSchedule");
+    let response = await fetch(url + "/getSchedule");
     let schedule = await response.json();
     displaySchedule(schedule);
 
-    response = await fetch("http://127.0.0.1:5000/getResources");
+    response = await fetch(url + "/getResources");
     resources = await response.json();
 
-    // response = await fetch("http://127.0.0.1:5000/getTutors");
+    // response = await fetch(url + "/getTutors");
     // tutors = await response.json();
 }
 
 // Compare function for sorting objects by "name" attribute:
 function compareObjects(o1, o2) {
-    if (o1["name"] < o2["name"] && o1["name"] != "") return -1;
-    if (o1["name"] > o2["name"] && o2["name"] != "") return 1;
+    if (o1["name"] < o2["name"] && o1["name"] !== "") return -1;
+    if (o1["name"] > o2["name"] && o2["name"] !== "") return 1;
     return 0;
 }
 
@@ -83,7 +84,7 @@ function displayResources(topicName) {
         links.sort(compareObjects);
         for (let l of links) {
             let li = document.createElement("li");
-            if (l.name == "") { li.innerHTML = "<a href=\"" + l.url +"\" target=\"_blank\">" + l.url + "</a>"; }
+            if (l.name === "") { li.innerHTML = "<a href=\"" + l.url +"\" target=\"_blank\">" + l.url + "</a>"; }
             else { li.innerHTML = "<a href=\"" + l.url +"\" target=\"_blank\">" + l.name + "</a>"; }
             ul.appendChild(li);
             ul.appendChild(document.createElement("br"));
