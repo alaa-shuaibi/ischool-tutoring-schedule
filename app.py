@@ -7,14 +7,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 app = Flask(__name__)
 
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/spreadsheets','https://www.googleapis.com/auth/drive.file','https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('../creds/ischool-tutoring-website-creds.json', scope)
 client = gspread.authorize(creds)
 
 # Retrieves data from the Google Sheets file:
 def getData():
-    schedule_sheet = client.open('iSchool Tutoring Schedule').get_worksheet(0)
-    resources_sheet = client.open('iSchool Tutoring Schedule').get_worksheet(1)
-    #tutors_sheet = client.open('iSchool Tutoring Schedule').get_worksheet(2)
+    schedule_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(0)
+    resources_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(1)
+    #tutors_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(2)
     
     schedule_data = schedule_sheet.get_all_records()
     resources_data = resources_sheet.get_all_records()
@@ -31,7 +31,10 @@ def getData():
     timer.daemon = True
     timer.start()
 
-getData()
+try:
+    getData()
+except:
+    print('Could not retrieve initial data upon server start.')
 
 @app.route('/')
 def index():
