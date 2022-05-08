@@ -44,7 +44,7 @@ def index():
 def getSchedule():
     try:
         with open('data/schedule.json', 'r') as f:
-            schedule_data = json.loads((f.read()))
+            schedule_data = json.load(f)
     except:
         return {'error': 'Schedule data not available.'}, 404
     return jsonify(schedule_data), 200
@@ -53,7 +53,7 @@ def getSchedule():
 def getResources():
     try:
         with open('data/resources.json', 'r') as f:
-            resources_data = json.loads((f.read()))
+            resources_data = json.load(f)
     except:
         return {'error': 'Resources data not available.'}, 404
     
@@ -88,7 +88,7 @@ def getResources():
 #def getTutors():
     #try:
         #with open('data/tutors.json', 'r') as f:
-            #tutors_data = json.loads((f.read()))
+            #tutors_data = json.load(f)
     #except:
         #return {'error': 'Tutors data not available.'}, 404
     #return jsonify(tutors_data), 200
