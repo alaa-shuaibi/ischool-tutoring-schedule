@@ -9,6 +9,9 @@ body {
     font-family: sans-serif;
 }
 
+
+/* Header */
+
 h1 {
     font-family: 'Source Sans Variable', 'Source Sans Pro', 'Calibri', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
     font-weight: 600;
@@ -23,37 +26,50 @@ img {
     top: 0%;
 }
 
+.info {
+    text-align: left;
+    width: fit-content;
+    position: absolute;
+    right: 1em;
+    top: 0%;
+    font-size: small;
+}
 
-/* Styles for Settings */
+.info a {
+    color: #13284b;
+    font-weight: bolder;
+    padding-right: 1em;
+}
 
-#settings {
-    margin: 3em;
+
+/* Schedule Buttons */
+
+#schedule-settings ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: large;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
-select {
-    padding: .25em;
+#schedule-settings li {
+    display: inline;
 }
 
-#toggle {
-    color: white;
-    background-color: #4D69A0;
-    padding: .5em;
-    border: 2px solid black;
-    border-radius: 1em;
-    font-size: 16px;
+#schedule-settings a {
+    color: #13284b;
+    font-weight: bold;
 }
 
 
-/* Styles for Schedule Table */
+/* Schedule Tables */
 
 table {
     color: white;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 1em;
     margin-bottom: 2em;
 }
 
@@ -65,6 +81,7 @@ th, td {
 /* Column Header Cells */
 th {
     color: white;
+    font-weight: bold;
     background-color: #13284b;
 }
 
@@ -96,9 +113,9 @@ td a {
 }
 
 
-/* Styles for Info Section */
+/* Resources Section */
 
-#info-section h3 {
+#resources-container h3 {
     color: #14A2B8;
    /* background-color: #14A2B8;*/
     /*font-family: cursive;*/
@@ -110,28 +127,10 @@ td a {
     width: fit-content;
 }
 
-#info-section ul {
+#resources-container ul {
     text-align: left;
 }
 
-#info-section a {
+#resources-container a {
     text-decoration: none;
-}
-
-
-/* Styles for Survey Links */
-
-#survey-links {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#survey-links a {
-    color: white;
-    text-decoration: none;
-    background-color: #4D69A0;
-    padding: .5em;
-    border: 2px solid black;
-    border-radius: 1em;
-    font-size: 16px;
 }

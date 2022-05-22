@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-import json
+import os, json
 from threading import Timer
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -14,18 +14,21 @@ client = gspread.authorize(creds)
 def getData():
     schedule_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(0)
     resources_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(1)
-    #tutors_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(2)
+    tutors_sheet = client.open('iSchool Tutoring Website Data').get_worksheet(2)
     
     schedule_data = schedule_sheet.get_all_records()
     resources_data = resources_sheet.get_all_records()
-    #tutors_data = tutors_sheet.get_all_records()
+    tutors_data = tutors_sheet.get_all_records()
+
+    if not os.path.exists('data'):
+        os.makedirs('data')
 
     with open('data/schedule.json', 'w') as schedule_file, \
-    open('data/resources.json', 'w') as resources_file:
-    #open('data/tutors.json', 'w') as tutors_file:
+    open('data/resources.json', 'w') as resources_file, \
+    open('data/tutors.json', 'w') as tutors_file:
         json.dump(schedule_data, schedule_file)
         json.dump(resources_data, resources_file)
-        #json.dump(tutors_data, tutors_file)
+        json.dump(tutors_data, tutors_file)
     
     timer = Timer(600, getData)
     timer.daemon = True
@@ -40,7 +43,7 @@ except:
 def index():
     return render_template('index.html'), 200
 
-@app.route('/getSchedule')
+@app.route('/schedule')
 def getSchedule():
     try:
         with open('data/schedule.json', 'r') as f:
@@ -49,7 +52,7 @@ def getSchedule():
         return {'error': 'Schedule data not available.'}, 404
     return jsonify(schedule_data), 200
 
-@app.route('/getResources')
+@app.route('/resources')
 def getResources():
     try:
         with open('data/resources.json', 'r') as f:
@@ -64,14 +67,14 @@ def getResources():
         if r['name'] == '' and r['url'] == '':
             continue
         
-        if r['subjects'] == '' and r['skills'] == '':
+        if r['courses'] == '' and r['skills'] == '':
             continue
-        elif r['subjects'] == '':
+        elif r['courses'] == '':
             topic_list = r['skills'].replace(' ', '').lower().split(',')
         elif r['skills'] == '':
-            topic_list = r['subjects'].replace(' ', '').lower().split(',')
+            topic_list = r['courses'].replace(' ', '').lower().split(',')
         else:
-            topics = r['subjects'] + ',' + r['skills']
+            topics = r['courses'] + ',' + r['skills']
             topic_list = topics.replace(' ', "").lower().split(',')
         
         for t in topic_list:
@@ -84,14 +87,14 @@ def getResources():
     
     return jsonify(resources_data_by_topic), 200
 
-#@app.route('/getTutors')
-#def getTutors():
-    #try:
-        #with open('data/tutors.json', 'r') as f:
-            #tutors_data = json.load(f)
-    #except:
-        #return {'error': 'Tutors data not available.'}, 404
-    #return jsonify(tutors_data), 200
+@app.route('/tutors')
+def getTutors():
+    try:
+        with open('data/tutors.json', 'r') as f:
+            tutors_data = json.load(f)
+    except:
+        return {'error': 'Tutors data not available.'}, 404
+    return jsonify(tutors_data), 200
 
 if __name__ == '__main__':
     app.run()

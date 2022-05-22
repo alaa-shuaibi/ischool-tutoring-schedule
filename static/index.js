@@ -1,18 +1,19 @@
 let url = "http://127.0.0.1:5000"
 let resources;
-// let tutors;
+let tutors;
 
 // Retrieves data from server then loads it onto the website:
 async function loadData() {
-    let response = await fetch(url + "/getSchedule");
+    let response = await fetch(url + "/schedule");
     let schedule = await response.json();
-    displaySchedule(schedule);
+    loadSchedule(schedule);
 
-    response = await fetch(url + "/getResources");
+    response = await fetch(url + "/resources");
     resources = await response.json();
 
-    // response = await fetch(url + "/getTutors");
-    // tutors = await response.json();
+    response = await fetch(url + "/tutors");
+    tutors = await response.json();
+    loadTutorSchedule();
 }
 
 // Compare function for sorting objects by "name" attribute:
@@ -22,18 +23,16 @@ function compareObjects(o1, o2) {
     return 0;
 }
 
-// Displays the schedule onto the website:
-function displaySchedule(schedule) {
+// Loads the schedule onto the website:
+function loadSchedule(schedule) {
     schedule.sort(compareObjects);
-    // let subject_filter = document.getElementById("subject-filter");
-    // let skill_filter = document.getElementById("skill-filter");
-    let subject_schedule = document.getElementById("subject-schedule");
+    let course_schedule = document.getElementById("course-schedule");
     let skill_schedule = document.getElementById("skill-schedule");
 
     for (let s of schedule) {
         let row;
-        if (s["type"] == "subject") {
-            row = subject_schedule.insertRow();
+        if (s["type"] == "course") {
+            row = course_schedule.insertRow();
         } else if (s["type"] == "skill") {
             row = skill_schedule.insertRow();
         } else { continue; }
@@ -48,26 +47,20 @@ function displaySchedule(schedule) {
     }
 }
 
-// Switches between Subject schedule and Skill schedule:
-function switchSchedule() {
-    let toggle = document.getElementById("toggle");
-    // let subject_filter = document.getElementById("subject-filter");
-    // let skill_filter = document.getElementById("skill-filter");
-    let subject_schedule = document.getElementById("subject-schedule");
-    let skill_schedule = document.getElementById("skill-schedule");
+function loadTutorSchedule() {
+    tutors.sort(compareObjects);
+    let tutor_scheudule = document.getElementById("tutor-schedule")
 
-    if (toggle.innerHTML == "Schedule by Skill") {
-        toggle.innerHTML = "Schedule by Subject";
-        // subject_filter.style.display = "none";
-        // skill_filter.style.display = "";
-        subject_schedule.style.display = "none";
-        skill_schedule.style.display = "";
-    } else {
-        toggle.innerHTML = "Schedule by Skill";
-        // subject_filter.style.display = "";
-        // skill_filter.style.display = "none";
-        subject_schedule.style.display = "";
-        skill_schedule.style.display = "none";
+    for (let t of tutors) {
+        let row = tutor_scheudule.insertRow();
+        let name = row.insertCell(0);
+        name.innerHTML = "<a>" + t["name"] + "</a>";
+        row.insertCell(1).innerHTML = t["courses"];
+        row.insertCell(2).innerHTML = t["skills"];
+        row.insertCell(3).innerHTML = t["monday"];
+        row.insertCell(4).innerHTML = t["tuesday"];
+        row.insertCell(5).innerHTML = t["wednesday"];
+        row.insertCell(6).innerHTML = t["thursday"];
     }
 }
 
@@ -95,6 +88,29 @@ function displayResources(topicName) {
     }
 
     document.getElementById("resources-container").style.display = "";
+}
+
+// Switches between different schedules:
+function switchSchedule(table) {
+    document.getElementById("resources-container").style.display = "none";
+
+    let course_schedule = document.getElementById("course-schedule");
+    let skill_schedule = document.getElementById("skill-schedule");
+    let tutor_schedule = document.getElementById("tutor-schedule");
+
+    if (table == "courses") {
+        course_schedule.style.display = "";
+        skill_schedule.style.display = "none";
+        tutor_schedule.style.display = "none"
+    } else if (table == "skills") {
+        course_schedule.style.display = "none";
+        skill_schedule.style.display = "";
+        tutor_schedule.style.display = "none"
+    } else if (table == "tutors") {
+        course_schedule.style.display = "none";
+        skill_schedule.style.display = "none";
+        tutor_schedule.style.display = ""
+    }
 }
 
 loadData();

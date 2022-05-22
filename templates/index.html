@@ -11,32 +11,37 @@
 <body>
     <header>
         <img src="{{ url_for('static', filename='ischool_logo.png') }}" alt="ischool_logo">
-    </header>
 
-    <div style="margin-top: 125px">
-        <h1>iSchool Tutoring</h1>
-    </div>
-    
-    <main style="margin-left: 25px; margin-right: 25px">
-        <div id="settings">
-            <div id="filters" style="display: none;">
-                <select id="subject-filter">
-                    <option value="">Filter by Subject</option>
-                </select>
-
-                <select id="skill-filter">
-                    <option value="">Filter by Skill</option>
-                </select>
-            </div>
-
-            <button id="toggle" onclick="switchSchedule()">Schedule by Skill</button>
+        <div class="info">
+            <p><strong>Location:</strong> Room 4060 (614 E. Daniel St. Building, 4th Floor)</p>
+            <p><strong>In-Person Hours:</strong> 12 PM - 7 PM, Monday - Thursday</p>
+            <p><strong>Online Hours:</strong> 12 PM - 5 PM, Monday - Thursday</p>
+            <a href="http://go.ischool.illinois.edu/AcademicCenterQueue" target="_blank" rel="noopener noreferrer">Queue</a>
+            <a href="http://ischool.illinois.edu/student-life/academic-support-center" target="_blank" rel="noopener noreferrer">More Information</a>
+            <a href="mailto:ischool-tutoring@illinois.edu">Email Staff</a>
         </div>
 
-        <p><strong>Note</strong>: Click on the name of a subject/skill to view a list of resources for it.</p>
+        <div style="margin-top: 125px">
+            <h1>iSchool Tutoring</h1>
+        </div>
+    </header>
+    
+    <main style="margin-left: 25px; margin-right: 25px">
+        <p><strong>Note</strong>: Click on the name of a course/skill to view a list of resources for it.</p>
+        
+        <br>
+        
+        <div id="schedule-settings">
+            <ul>
+                <li><a href="#courses" onclick="switchSchedule('courses')">Schedule by Course</a></li>
+                <li><a href="#skills" onclick="switchSchedule('skills')">Schedule by Skill</a></li>
+                <li><a href="#tutors" onclick="switchSchedule('tutors')">Schedule by Tutor</a></li>
+            </ul>
+        </div>
 
-        <table id="subject-schedule">
+        <table id="course-schedule">
             <tr>
-                <th>Subject</th>
+                <th>Course</th>
                 <th style="display: none;">Sunday</th>
                 <th>Monday</th>
                 <th>Tuesday</th>
@@ -60,40 +65,26 @@
             </tr>
         </table>
 
-        <div id="info-section">
-            <div id="tutors-container" style="display: none;">
-                <h3 id="tutors-header">Available Tutors</h3>
-                <ul id="tutors-list">
-                    <li>Tutor 1</li>
-                    <ul>
-                        <li>Courses: IS 101, IS 205</li>
-                        <li>Skills: Python</li>
-                        <li>Monday: 12 PM - 5PM</li>
-                    </ul>
-                    <br>
-                    <br>
-                    <li>Tutor 2</li>
-                    <ul>
-                        <li>Courses: IS 202, IS 206</li>
-                        <li>Skills: SQL</li>
-                        <li>Tuesday: 12 PM - 1 PM, 3 PM - 5 PM</li>
-                        <li>Thursday: 3 PM - 5 PM</li>
-                    </ul>
-                    
-                </ul>
-            </div>
+        <table id="tutor-schedule" style="display: none;">
+            <tr>
+                <th>Tutor</th>
+                <th>Courses</th>
+                <th>Skills</th>
+                <th style="display: none;">Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th style="display: none;">Friday</th>
+                <th style="display: none;">Saturday</th>
+            </tr>
+        </table>
 
-            <div id="resources-container" style="display: none;">
-                <h3 id="resources-title"></h3>
-                <ul id="resources-list"></ul>
-            </div>
+        <div id="resources-container" style="display: none;">
+            <h3 id="resources-title"></h3>
+            <ul id="resources-list"></ul>
         </div>
     </main>
-
-    <br>
-
-    <div id="survey-links">
-    </div>
 
     <br>
     
